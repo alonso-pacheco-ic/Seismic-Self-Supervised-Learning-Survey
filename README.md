@@ -39,11 +39,11 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   Employ auxiliary tasks (e.g., waveform classification or channel tracking) as regularization strategies to improve generalization in seismic segmentation tasks.  
   → [[paper]](https://doi.org/10.1109/LGRS.2023.3328837)
   
-#### Based on Local redundancy and structural continuity
+#### Denoising Tasks
 - **Neighbor2Neighbor**  
   Predicts a central trace using randomly sampled neighbors, encouraging the model to learn structural continuity while preserving geological features through regularized loss functions.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0895.1)
-- **Noise2Clean**  
+  → [[paper]](https://doi.org/10.1007/s11004-023-10089-3)
+- **Noise2Clean**
   Combines neighborhood sampling with expectation regularization to reconstruct cleaner traces without requiring clean references, enhancing robustness to real seismic noise.  
   → [[paper]](https://doi.org/10.1190/geo2023-0772.1)
 - **Noiser2Noiser**  
