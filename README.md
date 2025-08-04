@@ -21,19 +21,58 @@ This survey aims to:
 
 Below is a categorization of the main SSL methods found in the reviewed literature:
 
-### 🧩 Context-Based Techniques
-- **Rotation Prediction** : identify the rotation angle of seismic patches
-  → [paper](10.1109/LGRS.2022.3193567)
+### Context-Based Techniques
 
-- **Jigsaw Puzzle Solving**  Network to recover the original arrangement of shuffled image patches
-  → [paper](10.1109/LGRS.2022.3193567)
+#### Spatial Tasks
+- **Rotation Prediction**  
+  Learn to recognize the correct rotation angle applied to seismic patches, encouraging spatial awareness in feature representations.  
+  → [[paper]](https://doi.org/10.1109/LGRS.2022.3193567)
+- **Jigsaw Puzzle Solving**  
+  Reconstruct the original spatial arrangement of shuffled seismic patches, promoting learning of spatial relationships and structural patterns.  
+  → [[paper]](https://doi.org/10.1109/LGRS.2022.3193567)
+- **Temporal Order Prediction**  
+  Predict the correct temporal sequence of shuffled seismic trace segments to model temporal continuity and waveform dependencies.  
+  → [[paper]](https://doi.org/10.1109/LGRS.2022.3193567)
 
-- **Temporal Order Prediction**  shuffled trace segments are reordered to recover event continuity
-  → [paper](10.1109/LGRS.2022.3193567)
+#### Structural Tasks
+- **Seismic-Domain Auxiliary Tasks**  
+  Employ auxiliary tasks (e.g., waveform classification or channel tracking) as regularization strategies to improve generalization in seismic segmentation tasks.  
+  → [[paper]](https://doi.org/10.1109/LGRS.2023.3328837)
+  
+#### Based on Local redundancy and structural continuity
+- **Neighbor2Neighbor**  
+  Predicts a central trace using randomly sampled neighbors, encouraging the model to learn structural continuity while preserving geological features through regularized loss functions.  
+  → [[paper]](https://doi.org/10.1190/geo2023-0895.1)
+- **Noise2Clean**  
+  Combines neighborhood sampling with expectation regularization to reconstruct cleaner traces without requiring clean references, enhancing robustness to real seismic noise.  
+  → [[paper]](https://doi.org/10.1190/geo2023-0772.1)
+- **Noiser2Noiser**  
+  Applies re-corruption and symmetric loss to train models directly on noisy data, leveraging self-supervision without clean targets. Often implemented using variants of U-Net, DnCNN, or siamese CNNs.  
+  → [[paper]](https://doi.org/10.1190/geo2023-0746.1)
 
-- **Seismic-Domain Auxiliary Tasks**:   as regularization to improve generalization in seismic channel segmentation
-  → [paper](10.1109/LGRS.2023.3328837)
+#### Blind-Trace-Based Techniques
 
+- **Blind-Trace Deblending**  
+  Uses a U-Net variant trained without access to the target trace, forcing reconstruction from neighbors only. Includes rotation for vertical context and a second refinement stage called amplitude tuning.  
+  → [[paper]](https://doi.org/10.1190/geo2022-0269.1)
+- **Multi-Blind-Trace Learning**  
+  Extends the blind-trace approach using multiple exclusion masks and a hybrid loss to better suppress signal leakage during training.  
+  → [[paper]](https://doi.org/10.1190/geo2023-0305.1)
+- **Semi-Blind-Trace Learning**  
+  Uses adaptive masking and a refined loss to preserve vertical coherence while still excluding target traces during prediction.  
+  → [[paper]](https://doi.org/10.1190/geo2023-0582.1)
+- **Noisy-as-Clean Strategy**  
+  Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision, promoting spatial generalization.  
+  → [[paper]](https://doi.org/10.1190/geo2023-0620.1)
+- **Blind-Trace Network (BTN)**  
+  Reconstructs missing data from decimated seismic records using spectral suppression and mixed training, while avoiding aliasing.  
+  → [[paper]](https://doi.org/10.1190/geo2022-0051.1)
+- **Pseudo-label Generation via Masking (PGM)**  
+  Fills in missing traces using pseudo-labels generated through random trace masking. Trained with UNet++ and hybrid loss for enhanced reconstruction.  
+  → [[paper]](https://doi.org/10.1109/TGRS.2022.3193986)
+
+
+  
 ---
 
 ### 🧲 Contrastive Learning Techniques
