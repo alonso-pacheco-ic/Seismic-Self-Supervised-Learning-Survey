@@ -66,7 +66,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
 - **Blind-Trace Network (BTN)**  
   Reconstructs missing data from decimated seismic records using spectral suppression and mixed training, while avoiding aliasing.  
-  → [[paper]](https://doi.org/10.1190/geo2022-0051.1)
+  → [[paper]](https://doi.org/10.1109/TGRS.2022.3167546)
 - **Pseudo-label Generation via Masking (PGM)**  
   Fills in missing traces using pseudo-labels generated through random trace masking. Trained with UNet++ and hybrid loss for enhanced reconstruction.  
   → [[paper]](https://doi.org/10.1109/TGRS.2022.3148994)
