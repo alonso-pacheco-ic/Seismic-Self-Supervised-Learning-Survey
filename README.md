@@ -45,32 +45,58 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://doi.org/10.1007/s11004-023-10089-3)
 - **Noise2Clean**
   Combines neighborhood sampling with expectation regularization to reconstruct cleaner traces without requiring clean references, enhancing robustness to real seismic noise.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0772.1)
+  → [[paper]]([https://doi.org/10.1007/s11600-023-01105-5)
 - **Noiser2Noiser**  
   Applies re-corruption and symmetric loss to train models directly on noisy data, leveraging self-supervision without clean targets. Often implemented using variants of U-Net, DnCNN, or siamese CNNs.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0746.1)
+  → [[paper]](https://doi.org/10.1190/geo2023-0762.1)
 
 #### Blind-Trace-Based Techniques
 
 - **Blind-Trace Deblending**  
   Uses a U-Net variant trained without access to the target trace, forcing reconstruction from neighbors only. Includes rotation for vertical context and a second refinement stage called amplitude tuning.  
-  → [[paper]](https://doi.org/10.1190/geo2022-0269.1)
+  → [[paper]](https://doi.org/10.1109/TNNLS.2022.3188915)
 - **Multi-Blind-Trace Learning**  
   Extends the blind-trace approach using multiple exclusion masks and a hybrid loss to better suppress signal leakage during training.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0305.1)
+  → [[paper]](https://doi.org/10.3997/2214-4609.202310269)
 - **Semi-Blind-Trace Learning**  
   Uses adaptive masking and a refined loss to preserve vertical coherence while still excluding target traces during prediction.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0582.1)
+  → [[paper]](http://dx.doi.org/10.1111/1365-2478.13448)
 - **Noisy-as-Clean Strategy**  
   Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision, promoting spatial generalization.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0620.1)
+  → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
 - **Blind-Trace Network (BTN)**  
   Reconstructs missing data from decimated seismic records using spectral suppression and mixed training, while avoiding aliasing.  
   → [[paper]](https://doi.org/10.1190/geo2022-0051.1)
 - **Pseudo-label Generation via Masking (PGM)**  
   Fills in missing traces using pseudo-labels generated through random trace masking. Trained with UNet++ and hybrid loss for enhanced reconstruction.  
-  → [[paper]](https://doi.org/10.1109/TGRS.2022.3193986)
+  → [[paper]](https://doi.org/10.1109/TGRS.2022.3148994)
 
+### 🔲 Blind-Spot-Based Techniques
+
+- **Noise2Void (Blind Spot Network)**  
+  Masks central pixels during training to predict them from surrounding pixels, assuming noise is independent of signal.  
+  → [[paper]](https://doi.org/10.48550/arXiv.1811.10980)
+- **Blind Spot Visualization (BSV)**  
+  Dual-branch network: one performs BSN-style denoising, the other reconstructs masked regions via a Blind Spot Mapper. Trains directly on noisy data and improves DAS denoising.  
+  → [[paper]](https://doi.org/10.1190/geo2024-0020.1)
+- **StructBS + Plug-and-Play ADMM**  
+  Combines StructBS blind-spot network with iterative optimization for pseudo-deblended gathers. Uses temporally masked U-Net.  
+  → [[paper]](https://doi.org/10.3997/2214-4609.202210056)
+- **J-Invariant Masking (Noise2Self)**  
+  Ignores values at masked locations while reconstructing them, encouraging learning from spatial context. Applied with modified U2Net for seismic data.  
+  → [[paper]](https://doi.org/10.1016/j.jappgeo.2024.105653)
+- **Amplitude-Preserving Blind Spots**  
+  Modified U2Net with dilated convolutions and no batch norm or sigmoid layers, ensuring amplitude preservation.  
+  → [[paper]](https://doi.org/10.1190/geo2021-0700.1)
+- **SDeNet (Seismic DAS Denoising)**  
+  Introduces context-aware blind spots with dilated convolutions and asymmetric downsampling to handle spatially correlated noise.  
+  → [[paper]](https://doi.org/10.1190/geo2022-0641.1)
+- **Autoencoder with Tied Weights**  
+  Prevents input copying via encoder–decoder weight tying, enforcing implicit blind spots in reconstruction.  
+  → [[paper]](https://doi.org/10.1190/segam2021-3580984.1)
+- **Noise2Void Adapted to Seismic**  
+  Masks noisy pixels and reconstructs them from context, adapting original BSN principles to seismic characteristics.  
+  → [[paper]](https://doi.org/10.1190/segam2021-3583493.1)
 
   
 ---
