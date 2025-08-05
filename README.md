@@ -45,7 +45,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://doi.org/10.1007/s11004-023-10089-3)
 - **Noise2Clean**
   Combines neighborhood sampling with expectation regularization to reconstruct cleaner traces without requiring clean references, enhancing robustness to real seismic noise.  
-  → [[paper]]([https://doi.org/10.1007/s11600-023-01105-5)
+  → [[paper]](https://doi.org/10.1007/s11600-023-01105-5)
 - **Noiser2Noiser**  
   Applies re-corruption and symmetric loss to train models directly on noisy data, leveraging self-supervision without clean targets. Often implemented using variants of U-Net, DnCNN, or siamese CNNs.  
   → [[paper]](https://doi.org/10.1190/geo2023-0762.1)
@@ -206,7 +206,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **FaultCRL (Contrastive + Reconstruction Learning)**  
   A hybrid method combining contrastive learning with seismic-aware masked reconstruction for seismic faults.
   → [[paper]](https://doi.org/10.1016/j.eswa.2024.123617)
-- **FaultCDR (Contrastive + Disentangled Reconstruction)**  
+- **FaultCDR (Reconstruction + Disentangled Learning)**  
   A disentanglement-reconstruction approach that splits spatial and temporal features prior to reconstruction.
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3512547)
 
