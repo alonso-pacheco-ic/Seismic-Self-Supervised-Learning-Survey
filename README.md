@@ -58,7 +58,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **DNLR (Deep Nonlocal Regularizer)**  
   Applies nonlocal regularization on similar patches (via block matching) and integrates it into a U-Net-based CNN.
   → [[paper]](https://doi.org/10.1190/xu2023deep) [[code]](https://github.com/XuZitai/DNLR)
-|
+
 #### Blind-Trace-Based Techniques
 - **Blind-Trace Deblending**  
   Uses a U-Net variant trained without access to the target trace, forcing reconstruction from neighbors only. Includes rotation for vertical context and a second refinement stage called amplitude tuning.  
