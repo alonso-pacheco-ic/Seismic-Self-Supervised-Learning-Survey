@@ -52,9 +52,6 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Noise2Noise**  
   Uses pairs of noisy blocks from the same region, assuming uncorrelated noise and shared signal for denoising.  
   → [[paper]](https://doi.org/10.1109/LGRS.2022.3145835)
-- **Noisy-as-Clean Strategy**  
-  Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision, promoting spatial generalization.  
-  → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
 - **Tied Autoencoder**  
   Enforces symmetry between encoder and decoder to extract consistent features from noisy input.  
   → [[paper]](https://doi.org/10.3390/min11101089)
@@ -78,6 +75,9 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Pseudo-label Generation via Masking (PGM)**  
   Fills in missing traces using pseudo-labels generated through random trace masking. Trained with UNet++ and hybrid loss for enhanced reconstruction.  
   → [[paper]](https://doi.org/10.1109/TGRS.2022.3148994)
+- **Noisy-as-Clean Strategy**  
+  Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision.  
+  → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
 
 #### Blind-Spot-Based Techniques
 - **Noise2Void (Blind Spot Network)**  
