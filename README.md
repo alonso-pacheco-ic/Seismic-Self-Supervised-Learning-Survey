@@ -52,6 +52,9 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Noise2Noise**  
   Uses pairs of noisy blocks from the same region, assuming uncorrelated noise and shared signal for denoising.  
   → [[paper]](https://doi.org/10.1109/LGRS.2022.3145835)
+- **Noisy-as-Clean Strategy**  
+  Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision, promoting spatial generalization.  
+  → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
 - **Tied Autoencoder**  
   Enforces symmetry between encoder and decoder to extract consistent features from noisy input.  
   → [[paper]](https://doi.org/10.3390/min11101089)
@@ -69,9 +72,6 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Semi-Blind-Trace Learning**  
   Uses adaptive masking and a refined loss to preserve vertical coherence while still excluding target traces during prediction.  
   → [[paper]](http://dx.doi.org/10.1111/1365-2478.13448) [[code]](https: //github.com/mahdiabedi/semi-blind-trace-deep-learning)
-- **Noisy-as-Clean Strategy**  
-  Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision, promoting spatial generalization.  
-  → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
 - **Blind-Trace Network (BTN)**  
   Reconstructs missing data from decimated seismic records using spectral suppression and mixed training, while avoiding aliasing.  
   → [[paper]](https://doi.org/10.1109/TGRS.2022.3167546)
@@ -196,7 +196,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424003066) [[code]](https://github.com/tobi-ore/SeisSegDiff), [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424003121)
 - **Latent Space Factorization (LSF)**  
   A self-supervised encoder-decoder model projects features into orthogonal subspaces to isolate structures (faults, horizons, salt domes) without labels. Avoids reverse diffusion; uses gradient-based sampling.  
-  → [[paper]](https://arxiv.org/abs/2108.09605)[[code]](https://github.com/olivesgatech/Latent-Factorization)
+  → [[paper]](https://arxiv.org/abs/2108.09605) [[code]](https://github.com/olivesgatech/Latent-Factorization)
 - **Score-Based Generative Reconstruction**  
   Employs conditional score functions and Langevin dynamics to recover signals from noisy inputs without clean labels, enabling stochastic self-supervised learning.  
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3421597) [[code]](https://github.com/mengchuangji/VI-Non-IID)
