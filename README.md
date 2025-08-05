@@ -55,7 +55,10 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Tied Autoencoder**  
   Enforces symmetry between encoder and decoder to extract consistent features from noisy input.  
   → [[paper]](https://doi.org/10.3390/min11101089)
-
+- **DNLR (Deep Nonlocal Regularizer)**  
+  Applies nonlocal regularization on similar patches (via block matching) and integrates it into a U-Net-based CNN.
+  → [[paper]](https://doi.org/10.1190/xu2023deep) [[code]](https://github.com/XuZitai/DNLR)
+|
 #### Blind-Trace-Based Techniques
 - **Blind-Trace Deblending**  
   Uses a U-Net variant trained without access to the target trace, forcing reconstruction from neighbors only. Includes rotation for vertical context and a second refinement stage called amplitude tuning.  
@@ -65,7 +68,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://doi.org/10.3997/2214-4609.202310269)
 - **Semi-Blind-Trace Learning**  
   Uses adaptive masking and a refined loss to preserve vertical coherence while still excluding target traces during prediction.  
-  → [[paper]](http://dx.doi.org/10.1111/1365-2478.13448)
+  → [[paper]](http://dx.doi.org/10.1111/1365-2478.13448) [[code]](https: //github.com/mahdiabedi/semi-blind-trace-deep-learning)
 - **Noisy-as-Clean Strategy**  
   Reconstructs clean signals from noisy inputs without ground truth by treating noisy traces as supervision, promoting spatial generalization.  
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3497163)
@@ -110,13 +113,13 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 #### Bernoulli-Based 
 - **Bernoulli Dropout Masking**  
   Randomly masks pixels or traces based on a Bernoulli distribution. Variants of U-Net with partial convolutions and self-ensembling reconstruct the signal from sparse observations.  
-  → [[paper]](https://doi.org/10.1007/s11004-022-10032-y), [[paper]](https://doi.org/10.1109/LGRS.2022.3167999), [[paper]](https://doi.org/10.1109/ICSPCC55723.2022.9984626)
+  → [[paper]](https://doi.org/10.1007/s11004-022-10032-y), [[paper]](https://doi.org/10.1109/LGRS.2022.3167999), [[paper]](https://doi.org/10.1109/ICSPCC55723.2022.9984626), [[paper]](https://doi.org/10.1109/TGRS.2023.3268554) [[code]](https://github.com/XuZitai/S2S-WTV)
 - **Double Bernoulli Sampling + FFT**  
   Applies two-stage Bernoulli masking with gated convolutions and a frequency-based FFT module for reconstructing randomly missing 3D traces.  
-  → [[paper]](https://doi.org/10.1109/TGRS.2024.3401130)
+  → [[paper]](https://doi.org/10.1109/TGRS.2024.3401130) [[code]](https://github.com/Ji-seismic/N2N_deblending)
 - **3-DPCNN (Multitask Learning)**  
   Combines Bernoulli-masked partial convolutions with multitask 3D CNNs for joint denoising and reconstruction in complex seismic volumes.  
-  → [[paper]](https://ui.adsabs.harvard.edu/link_gateway/2022ITGRS..6025923C/doi:10.1109/TGRS.2022.3225923)
+  → [[paper]](https://ui.adsabs.harvard.edu/link_gateway/2022ITGRS..6025923C/doi:10.1109/TGRS.2022.3225923) [[code]](https://github.com/caowei2020/self-supervised-3-DPCNN)
 
 #### Focus on Interpolation  
 - **Frequency-Aware Interpolation (U-Net)**  
@@ -140,10 +143,10 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 ### Contrastive Learning Techniques
 
 - **Spatial Contrastive Learning on Seismic Volumes**  
-  Leverages spatial proximity—rather than visual similarity—to form positive pairs across adjacent slices. Uses ResNet-18 + MLP encoder, and DeepLabv3 for segmentation fine-tuning.  
-  → [[paper]](https://arxiv.org/abs/2206.08158)
+  Leverages spatial proximity—rather than visual similarity—to form positive pairs across adjacent slices.
+  → [[paper]](https://arxiv.org/abs/2206.08158) [[code]](https://github.com/olivesgatech/facies_classification_benchmark)
 - **Salt3DNet using Barlow Twins**  
-  Uses Barlow Twins for 3D seismic data, learning decorrelated yet similar features from augmentations. Avoids negative pairs and improves salt dome segmentation. 
+  Uses Barlow Twins for 3D seismic data, learning decorrelated but similar features from augmentations. Avoids negative pairs and improves salt dome segmentation. 
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3394592)
 
 ---
@@ -153,7 +156,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 #### Classical MIM Techniques
 - **MAE with Vision Transformer (ViT)**  
   Trained to reconstruct randomly masked patches (75%) from 2D seismic slices.
-  → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424002929), [[paper]](https://arxiv.org/abs/2309.02791), [[paper]](https://pubs.geoscienceworld.org/seg/tle/article-abstract/44/2/96/651627/SeisBERT-A-pretrained-seismic-image-representation)
+  → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424002929) [[code]](https://github.com/lluizfernandotrindade/Natural_Gas_Segmentation), [[paper]](https://arxiv.org/abs/2309.02791)[[code]](https://github.com/shenghanlin/SeismicFoundationModel), [[paper]](https://pubs.geoscienceworld.org/seg/tle/article-abstract/44/2/96/651627/SeisBERT-A-pretrained-seismic-image-representation)
 - **SimMIM with Swin Transformer**  
   Applies SimMIM to 3D seismic volumes, masking ~60% of input patches and reconstructing them directly from the encoder output. Achieves better performance than training from scratch or other SSL strategies.  
   → [[paper]](https://arxiv.org/abs/2310.17974)
@@ -167,7 +170,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://doi.org/10.1190/geo2022-0281.1)
 - **Auxiliary Image Reconstruction in CNNs**  
   Adds image reconstruction as an auxiliary task in DeepLabV3+ (ResNet-18), improving segmentation with limited labels.  
-  → [[paper]](https://doi.org/10.1109/ICIP40778.2020.9190798)
+  → [[paper]](https://doi.org/10.1109/ICIP40778.2020.9190798) [[code]](https://charlielehman.github.io/publication/s6/)
 - **Masked Temporal Reconstruction in LSTMs**  
   Uses a bidirectional LSTM trained to reconstruct masked time sequences, demonstrating the benefit of SSL in temporal models.  
   → [[paper]](https://doi.org/10.1109/SIBGRAPI62404.2024.10716309)
@@ -184,27 +187,27 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3359247)
 - **Multi-branch Masked Reconstruction**  
   Two U-Nets with different transformation strategies fused via convolution to recover weak and overlapping seismic signals.  
-  → [[paper]](http://dx.doi.org/10.1109/TGRS.2024.3401832)
+  → [[paper]](http://dx.doi.org/10.1109/TGRS.2024.3401832) [[code]](https://github.com/mahdiabedi)
 
 ### Classical Generative Modeling
 
 - **SeisSegDiff (DDPM-based Generative Modeling)**  
   Applies Denoising Diffusion Probabilistic Models (DDPMs) to reconstruct seismic volumes from noise. The learned features feed an ensemble of MLPs for facies classification with minimal supervision.  
-  → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424003066), [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424003121)
+  → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424003066) [[code]](https://github.com/tobi-ore/SeisSegDiff), [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424003121)
 - **Latent Space Factorization (LSF)**  
   A self-supervised encoder-decoder model projects features into orthogonal subspaces to isolate structures (faults, horizons, salt domes) without labels. Avoids reverse diffusion; uses gradient-based sampling.  
-  → [[paper]](https://arxiv.org/abs/2108.09605)
+  → [[paper]](https://arxiv.org/abs/2108.09605)[[code]](https://github.com/olivesgatech/Latent-Factorization)
 - **Score-Based Generative Reconstruction**  
   Employs conditional score functions and Langevin dynamics to recover signals from noisy inputs without clean labels, enabling stochastic self-supervised learning.  
-  → [[paper]](https://doi.org/10.1109/TGRS.2024.3421597)
+  → [[paper]](https://doi.org/10.1109/TGRS.2024.3421597) [[code]](https://github.com/mengchuangji/VI-Non-IID)
   
 ### Hybrid SSL Strategies
 
 - **FaultCRL (Contrastive + Reconstruction Learning)**  
-  A hybrid method combining contrastive learning with seismic-aware masked reconstruction. Built on a 3D HRNet with Tiny Self-Attention, the model excels in 3D fault detection from unlabeled data.  
+  A hybrid method combining contrastive learning with seismic-aware masked reconstruction for seismic faults.
   → [[paper]](https://doi.org/10.1016/j.eswa.2024.123617)
 - **FaultCDR (Contrastive + Disentangled Reconstruction)**  
-  A disentanglement-reconstruction approach that splits spatial and temporal features prior to reconstruction. The model learns more interpretable and structured representations for subsurface features.  
+  A disentanglement-reconstruction approach that splits spatial and temporal features prior to reconstruction.
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3512547)
 
 
@@ -217,8 +220,9 @@ If you find this work helpful, please cite the original survey (add citation her
 ## Contact
 
 For questions or collaboration inquiries, feel free to contact:  
-**Alonso Pacheco**  
-Email: [your_email@domain.com]
+**Alonso Pacheco Huachaca**  
+Email: [a291204@dac.unicamp.br]  
+**Mauricio Cifuentes Ruiz**
 
 ---
 
