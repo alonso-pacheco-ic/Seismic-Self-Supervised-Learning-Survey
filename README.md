@@ -42,7 +42,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 #### Focus on Denoising
 - **Neighbor2Neighbor**  
   Predicts a central trace using randomly sampled neighbors, encouraging the model to learn structural continuity while preserving geological features through regularized loss functions.  
-  → [[paper]](https://doi.org/10.1007/s11004-023-10089-3)
+  → [[paper]](https://doi.org/10.1007/s11004-023-10089-3), [[paper]](https://doi.org/10.1093/jge/gxaf091)
 - **Noise2Clean**
   Combines neighborhood sampling with expectation regularization to reconstruct cleaner traces without requiring clean references, enhancing robustness to real seismic noise.  
   → [[paper]](https://doi.org/10.1007/s11600-023-01105-5)
@@ -61,8 +61,11 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 
 #### Blind-Trace-Based Techniques
 - **Blind-Trace Deblending**  
-  Uses a U-Net variant trained without access to the target trace, forcing reconstruction from neighbors only. Includes rotation for vertical context and a second refinement stage called amplitude tuning.  
-  → [[paper]](https://doi.org/10.1109/TNNLS.2022.3188915)
+  Uses a U-Net variant trained without access to the target trace, forcing reconstruction from neighbors only. 
+  → [[paper]](https://doi.org/10.1109/TNNLS.2022.3188915), [[paper]](https://doi.org/10.1093/jge/gxaf074), [[paper]](https://doi.org/10.1016/j.petsci.2024.12.023)
+- **Unblind-Trace Deblending**  
+  Uses a denoising network in a Plug-and-Play framework with adaptive masking to enhance separation of blended signals without requiring labeled data.
+  → [[paper]](https://doi.org/10.1093/jge/gxaf074)
 - **Multi-Blind-Trace Learning**  
   Extends the blind-trace approach using multiple exclusion masks and a hybrid loss to better suppress signal leakage during training.  
   → [[paper]](https://doi.org/10.3997/2214-4609.202310269)
@@ -148,7 +151,10 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Salt3DNet using Barlow Twins**  
   Uses Barlow Twins for 3D seismic data, learning decorrelated but similar features from augmentations. Avoids negative pairs and improves salt dome segmentation. 
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3394592)
-
+- **AdaSemSeg pretraining with SimCLR**  
+  Employs SimCLR to pretrain the image encoder, leveraging contrastive learning with augmented seismic sections to learn transferable representations before segmentation fine-tuning.  
+  → [[paper]](https://arxiv.org/abs/2501.16760)
+  
 ---
   
 ### Masked Image Modeling
@@ -156,7 +162,7 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 #### Classical MIM Techniques
 - **MAE with Vision Transformer (ViT)**  
   Trained to reconstruct randomly masked patches (75%) from 2D seismic slices.
-  → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424002929) [[code]](https://github.com/lluizfernandotrindade/Natural_Gas_Segmentation), [[paper]](https://arxiv.org/abs/2309.02791)[[code]](https://github.com/shenghanlin/SeismicFoundationModel), [[paper]](https://pubs.geoscienceworld.org/seg/tle/article-abstract/44/2/96/651627/SeisBERT-A-pretrained-seismic-image-representation)
+  → [[paper]](https://www.sciencedirect.com/science/article/pii/S0098300424002929) [[code]](https://github.com/lluizfernandotrindade/Natural_Gas_Segmentation), [[paper]](https://arxiv.org/abs/2309.02791)[[code]](https://github.com/shenghanlin/SeismicFoundationModel), [[paper]](https://pubs.geoscienceworld.org/seg/tle/article-abstract/44/2/96/651627/SeisBERT-A-pretrained-seismic-image-representation), [[paper]] (https://doi.org/10.1016/j.eswa.2025.128641), [[paper]] (https://doi.org/10.1016/j.compgeo.2024.106194)
 - **SimMIM with Swin Transformer**  
   Applies SimMIM to 3D seismic volumes, masking ~60% of input patches and reconstructing them directly from the encoder output. Achieves better performance than training from scratch or other SSL strategies.  
   → [[paper]](https://arxiv.org/abs/2310.17974)
