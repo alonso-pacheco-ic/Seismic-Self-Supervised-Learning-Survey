@@ -112,6 +112,12 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Custom Structured Masking**  
   Selectively masks regions to preserve geological details and suppress coherent noise, using spatial context for reconstruction.  
   → [[paper]](https://doi.org/10.1109/IGARSS52108.2023.10283058), [[paper]](https://arxiv.org/abs/2310.13967)
+- **Fusion Masking**  
+  Two U-Nets with different transformation strategies fused via convolution to recover weak and overlapping seismic signals.  
+  → [[paper]](http://dx.doi.org/10.1109/TGRS.2024.3401832) [[code]](https://github.com/mahdiabedi)
+- **Masked Temporal Reconstruction in LSTMs**  
+  Uses a bidirectional LSTM trained to reconstruct masked time sequences, demonstrating the benefit of SSL in temporal models.  
+  → [[paper]](https://doi.org/10.1109/SIBGRAPI62404.2024.10716309)
 
 #### Bernoulli-Based 
 - **Bernoulli Dropout Masking**  
@@ -170,16 +176,10 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 #### Advanced Masked Reconstruction and Hybrid SSL Approaches
 - **Transformer and CNN-based Masked Reconstruction**  
   SSL with masked reconstruction achieves performance close to full supervision using only 5–10% labeled data.  
-  → [[paper]](https://doi.org/10.1190/geo2023-0508.1)
+  → [[paper]](https://doi.org/10.1190/geo2023-0508.1)  chikhaoui2024seismic
 - **Few-shot Facies Classification (MT-ProtoNet)**  
   Combines masked trace reconstruction with prototype learning, enabling accurate facies classification with only 1–5 labeled sections.  
-  → [[paper]](https://doi.org/10.1190/geo2022-0281.1)
-- **Auxiliary Image Reconstruction in CNNs**  
-  Adds image reconstruction as an auxiliary task in DeepLabV3+ (ResNet-18), improving segmentation with limited labels.  
-  → [[paper]](https://doi.org/10.1109/ICIP40778.2020.9190798) [[code]](https://charlielehman.github.io/publication/s6/)
-- **Masked Temporal Reconstruction in LSTMs**  
-  Uses a bidirectional LSTM trained to reconstruct masked time sequences, demonstrating the benefit of SSL in temporal models.  
-  → [[paper]](https://doi.org/10.1109/SIBGRAPI62404.2024.10716309)
+  → [[paper]](https://doi.org/10.1190/geo2022-0281.1) zhao2023fewshot
 
 #### Masked SSL for Denoising and Interpolation
 - **SDT (Seismic Denoising Transformer)**  
@@ -191,9 +191,6 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **DINN (Dip-Informed Neural Network)**  
   Enhances anti-aliasing interpolation with dip-guided deformable convolutions and low-pass filter initialization.  
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3359247)
-- **Multi-branch Masked Reconstruction**  
-  Two U-Nets with different transformation strategies fused via convolution to recover weak and overlapping seismic signals.  
-  → [[paper]](http://dx.doi.org/10.1109/TGRS.2024.3401832) [[code]](https://github.com/mahdiabedi)
 
 ### Classical Generative Modeling
 
@@ -206,6 +203,9 @@ Below is a categorization of the main SSL methods found in the reviewed literatu
 - **Score-Based Generative Reconstruction**  
   Employs conditional score functions and Langevin dynamics to recover signals from noisy inputs without clean labels, enabling stochastic self-supervised learning.  
   → [[paper]](https://doi.org/10.1109/TGRS.2024.3421597) [[code]](https://github.com/mengchuangji/VI-Non-IID)
+- **Auxiliary Image Reconstruction in CNNs**  
+  Adds image reconstruction as an auxiliary task in DeepLabV3+ (ResNet-18), improving segmentation with limited labels.  
+  → [[paper]](https://doi.org/10.1109/ICIP40778.2020.9190798) [[code]](https://charlielehman.github.io/publication/s6/)
   
 ### Hybrid SSL Strategies
 
